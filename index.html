@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=http://192.168.0.228" />
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      // 元の URL のクエリやハッシュを保持してリダイレクト
+      window.onload = function () {
+        const base = "http://192.168.0.228";
+        const query = window.location.search;  // ?以降
+        const hash = window.location.hash;    // #以降
+        const target = base + query + hash;
+        window.location.replace(target);
+      };
+    </script>
   </head>
   <body>
-    <p>Redirecting to <a href="http://192.168.0.228">http://192.168.0.228</a> ...</p>
+    <p>
+      Redirecting to
+      <a id="redirectLink" href="http://192.168.0.228">http://192.168.0.228</a> ...
+    </p>
+    <script>
+      // リンクの href も更新しておくと安心
+      document.getElementById("redirectLink").href =
+        "http://192.168.0.228" + window.location.search + window.location.hash;
+    </script>
   </body>
 </html>
 
