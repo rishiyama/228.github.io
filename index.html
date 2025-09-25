@@ -6,7 +6,7 @@
     <script>
       // 元の URL のクエリやハッシュを保持してリダイレクト
       window.onload = function () {
-        const base = "http://192.168.0.228";
+        const base = "http://192.168.0.228/auth/google/callback";
         const query = window.location.search;  // ?以降
         const hash = window.location.hash;    // #以降
         const target = base + query + hash;
@@ -17,12 +17,12 @@
   <body>
     <p>
       Redirecting to
-      <a id="redirectLink" href="http://192.168.0.228">http://192.168.0.228</a> ...
+      <a id="redirectLink" href="http://192.168.0.228/auth/google/callback">http://192.168.0.228/auth/google/callback</a> ...
     </p>
     <script>
       // リンクの href も更新しておくと安心
       document.getElementById("redirectLink").href =
-        "http://192.168.0.228" + window.location.search + window.location.hash;
+        "http://192.168.0.228/auth/google/callback" + window.location.search + window.location.hash;
     </script>
   </body>
 </html>
